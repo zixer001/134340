@@ -1,0 +1,29 @@
+{
+  "name": "fireworkproject",
+  "version": "1.0.0",
+  "description": "Default Project Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@line/bot-sdk": "^7.5.2",
+    "axios": "^1.2.2",
+    "axios-cookiejar-support": "^4.0.6",
+    "cron": "^2.2.0",
+    "dayjs": "^1.11.7",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-validator": "^6.15.0",
+    "jimp": "^0.22.7",
+    "jsonwebtoken": "^9.0.0",
+    "jsqr": "^1.4.0",
+    "moment": "^2.29.4",
+    "multer": "^1.4.5-lts.1",
+    "mysql": "^2.18.1",
+    "qs": "^6.11.0",
+    "request": "^2.88.2"
+  }
+}
