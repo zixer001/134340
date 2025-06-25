@@ -31,18 +31,19 @@ $username_mb = $_POST["username"];
 
 $sql = "UPDATE withdraw SET  
 			
-			amount_wd='$amount_wd' , 
-			phone_wd='$phone_wd' ,
-			bank_wd='$bank_wd' ,
-			bankacc_wd='$bankacc_wd' ,
-			name_wd='$name_wd' ,
-			confirm_wd='$confirm_wd' ,
-			note_wd='$note_wd' ,
+			amount_wd=? , 
+			phone_wd=? ,
+			bank_wd=? ,
+			bankacc_wd=? ,
+			name_wd=? ,
+			confirm_wd=? ,
+			note_wd=? ,
 			pin_wd='' ,
-			bankout_wd='$bankout_wd'
-			WHERE id='$id' ";
-
-$result = mysqli_query($con, $sql) or die("Error in query: $sql " . mysqli_error());
+			bankout_wd=?
+			WHERE id=?";
+$stmt = mysqli_prepare($con, $sql);
+mysqli_stmt_bind_param($stmt, "sssssssss", $amount_wd, $phone_wd, $bank_wd, $bankacc_wd, $name_wd, $confirm_wd, $note_wd, $bankout_wd, $id);
+$result = mysqli_stmt_execute($stmt) or die("Error in query: $sql " . mysqli_error($con));
 
 if ($result == true) {
 

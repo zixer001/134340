@@ -24,17 +24,18 @@ echo "</script>";
 //ทำการปรับปรุงข้อมูลที่จะแก้ไขลงใน database 
 	
 	$sql = "UPDATE member SET  
-			username_mb='$username_mb' ,
-			password_mb='$password_mb' , 
-			phone_mb='$phone_mb' ,
-			phone_true='$phone_true' ,
-			bank_mb='$bank_mb' ,
-			bankacc_mb='$bankacc_mb' ,
-			name_mb='$name_mb' ,
-			confirm_mb='$confirm_mb'
-			WHERE id_mb='$id_mb' ";
- 
-$result = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error());
+			username_mb=? ,
+			password_mb=? , 
+			phone_mb=? ,
+			phone_true=? ,
+			bank_mb=? ,
+			bankacc_mb=? ,
+			name_mb=? ,
+			confirm_mb=?
+			WHERE id_mb=? ";
+	$stmt = mysqli_prepare($con, $sql);
+	mysqli_stmt_bind_param($stmt, 'sssssssss', $username_mb, $password_mb, $phone_mb, $phone_true, $bank_mb, $bankacc_mb, $name_mb, $confirm_mb, $id_mb);
+	$result = mysqli_stmt_execute($stmt) or die ("Error in query: $sql " . mysqli_error($con));
  
 mysqli_close($con); //ปิดการเชื่อมต่อ database 
  

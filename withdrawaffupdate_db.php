@@ -27,17 +27,18 @@ echo "</script>";
 	
 	$sql = "UPDATE withdrawaff SET  
 			
-			amount_aff='$amount_aff' , 
-			phone_aff='$phone_aff' ,
-			bank_aff='$bank_aff' ,
-			bankacc_aff='$bankacc_aff' ,
-			name_aff='$name_aff' ,
-			confirm_aff='$confirm_aff' ,
-			note_aff='$note_aff' ,
-			bankout_aff='$bankout_aff'
-			WHERE id='$id' ";
- 
-$result = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error());
+			amount_aff=? , 
+			phone_aff=? ,
+			bank_aff=? ,
+			bankacc_aff=? ,
+			name_aff=? ,
+			confirm_aff=? ,
+			note_aff=? ,
+			bankout_aff=?
+			WHERE id=?";
+	$stmt = mysqli_prepare($con, $sql);
+	mysqli_stmt_bind_param($stmt, "sssssssss", $amount_aff, $phone_aff, $bank_aff, $bankacc_aff, $name_aff, $confirm_aff, $note_aff, $bankout_aff, $id);
+	$result = mysqli_stmt_execute($stmt);
  
 mysqli_close($con); //ปิดการเชื่อมต่อ database 
  
