@@ -48,7 +48,7 @@ $api = new Betflix();?>
                 <input type="text" name="amount"  class="form-control ng-pristine ng-untouched ng-valid ng-empty" onkeypress="return bannedKey(event)" value="<?=$amount_wd;?>" >
               </div>
               <div class="col-sm-4">
-                <input type="text" name="id"  class="form-control ng-pristine ng-untouched ng-valid ng-empty" onkeypress="return bannedKey(event)" value="<?=$_GET['id'];?>" readonly="readonly" hidden>
+                <input type="text" name="id"  class="form-control ng-pristine ng-untouched ng-valid ng-empty" onkeypress="return bannedKey(event)" value="<?=htmlentities($_GET['id'], ENT_QUOTES);?>" readonly="readonly" hidden>
               </div>
             </div><br>
             <div class="form-group">
@@ -200,7 +200,7 @@ $api = new Betflix();?>
                     <form action="../apiufa1062.php?cashback" class="form-horizontal ng-pristine ng-valid" method="POST">
                     <input type="text" name="username" value="<?php echo $agent; ?><?=$username_wd;?>" hidden="hide">
                     <input type="text" name="amount" value="<?=$amount_cashback;?>" hidden="hide">
-                    <input type="text" name="id" value="<?=$_GET['id'];?>" hidden>
+                    <input type="text" name="id" value="<?=htmlentities($_GET['id'], ENT_QUOTES);?>" hidden>
                     <button type="submit" class="btn btn-primary">คลิ๊กเงินคืน</button>
                   </div></form> -->
                   <!-- <label class="col-sm-2"></label>
@@ -236,7 +236,7 @@ $api = new Betflix();?>
                     <input type="text" name="accountTo" value="<?php echo $bankacc_wd;?>" hidden="hide">
                     <input type="text" name="accountToBankCode" value="<?php echo $bank_wd;?>" hidden>
                     <input type="text" name="add_wd" value="<?php echo $name_ad;?>" hidden>
-                    <input type="hidden" name="id_withdraw" value="<?php echo $_GET['id'];?>">
+                    <input type="hidden" name="id_withdraw" value="<?php echo htmlentities($_GET['id'], ENT_QUOTES);?>">
                     <label class="col-sm-2 control-label">ยอดเงิน</label>
                     <div class="col-sm-4">
                       
