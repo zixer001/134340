@@ -64,7 +64,7 @@
 								</div>
 							</div>
 							<div class="col-sm-4">
-								<input type="text" name="id" class="form-control ng-pristine ng-untouched ng-valid ng-empty" onkeypress="return bannedKey(event)" value="<?= $_GET['id']; ?>" readonly="readonly" hidden>
+								<input type="text" name="id" class="form-control ng-pristine ng-untouched ng-valid ng-empty" onkeypress="return bannedKey(event)" value="<?= htmlentities($_GET['id'], ENT_QUOTES); ?>" readonly="readonly" hidden>
 							</div>
 							<div class="form-group">
 								<div class="row">
